@@ -3,44 +3,60 @@
 import express from 'express';
 const router = express.Router();
 
+// var globale posts
+
+let postsList = [
+
+    {
+        titolo: "Ricetta 1",
+        contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
+        immagine: "imgs/ciambellone.jpeg",
+        tags: ["ricetta", "dolce", "ciambellone"]
+    },
+    {
+        titolo: "Ricetta 2",
+        contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
+        immagine: "imgs/cracker_barbabietola.jpeg",
+        tags: ["ricetta", "salato", "barbabietola"]
+    },
+    {
+        titolo: "Ricetta 3",
+        contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
+        immagine: "imgs/pane_fritto_dolce.jpeg",
+        tags: ["ricetta", "dolce", "pane"]
+    },
+    {
+        titolo: "Ricetta 4",
+        contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
+        immagine: "imgs/pasta_barbabietola.jpeg",
+        tags: ["ricetta", "pasta", "barbabietola"]
+    },
+    {
+        titolo: "Ricetta 5",
+        contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
+        immagine: "imgs/torta_paesana.jpeg",
+        tags: ["ricetta", "dolce", "torta"]
+    },
+];
+
 // route bacheca per elenco post
 router.get('/bacheca', (req, res) => {
 
-    let postsList = [
+    res.json("elenco dei post");
 
-        {
-            titolo: "Ricetta 1",
-            contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
-            immagine: "imgs/ciambellone.jpeg",
-            tags: ["ricetta", "dolce", "ciambellone"]
-        },
-        {
-            titolo: "Ricetta 2",
-            contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
-            immagine: "imgs/cracker_barbabietola.jpeg",
-            tags: ["ricetta", "salato", "barbabietola"]
-        },
-        {
-            titolo: "Ricetta 3",
-            contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
-            immagine: "imgs/pane_fritto_dolce.jpeg",
-            tags: ["ricetta", "dolce", "pane"]
-        },
-        {
-            titolo: "Ricetta 4",
-            contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
-            immagine: "imgs/pasta_barbabietola.jpeg",
-            tags: ["ricetta", "pasta", "barbabietola"]
-        },
-        {
-            titolo: "Ricetta 5",
-            contenuto: "Descrizione della ricetta, ingredienti, tempi di preparazione e come eseguirla con i relativi passaggi",
-            immagine: "imgs/torta_paesana.jpeg",
-            tags: ["ricetta", "dolce", "torta"]
-        },
-    ];
+})
 
-    res.json(postsList);
+// route bacheca per estrarre singolo post
+router.get('/bacheca/:id', (req, res) => {
+
+    let extractedPost = postsList.find( post => {
+        // req.params.id
+        if (post.titolo === req.params.id) {
+            return post;
+        }
+    });
+
+    res.send(`extracted post: ${extractedPost}`);
 
 })
 
