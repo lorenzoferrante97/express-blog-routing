@@ -37,3 +37,10 @@ router.patch('/:id', (req, res) => {
 
 
 })
+
+// DELETE -> destroy
+router.delete('/:id', (req, res) => {
+
+
+
+})
