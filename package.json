@@ -20,5 +20,6 @@
   "homepage": "https://github.com/lorenzoferrante97/express-blog-routing#readme",
   "dependencies": {
     "express": "^4.21.2"
-  }
+  },
+  "type": "module"
 }
