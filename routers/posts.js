@@ -16,3 +16,10 @@ router.get('/:id', (req, res) => {
 
 
 })
+
+// CREATE -> store
+router.post('/', (req, res) => {
+
+
+
+})
