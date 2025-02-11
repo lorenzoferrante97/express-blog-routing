@@ -25,7 +25,14 @@ router.post('/', (req, res) => {
 })
 
 // UPDATE -> update
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
+
+
+
+})
+
+// UPDATE -> modify
+router.patch('/:id', (req, res) => {
 
 
 
