@@ -7,6 +7,10 @@ const port = 3000;
 //import router
 import postsRouter from './routers/posts.js';
 
+// use routers
+app.use('/posts', postsRouter);
+
+// use public
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
