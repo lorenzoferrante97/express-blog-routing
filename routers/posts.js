@@ -23,3 +23,10 @@ router.post('/', (req, res) => {
 
 
 })
+
+// UPDATE -> update
+router.put('/', (req, res) => {
+
+
+
+})
