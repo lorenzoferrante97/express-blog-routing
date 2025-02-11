@@ -56,7 +56,7 @@ router.get('/bacheca/:id', (req, res) => {
         }
     });
 
-    res.send(`extracted post: ${extractedPost}`);
+    res.send(extractedPost);
 
 })
 
