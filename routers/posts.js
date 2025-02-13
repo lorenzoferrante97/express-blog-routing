@@ -49,14 +49,15 @@ router.get('/bacheca', (req, res) => {
 // route bacheca per estrarre singolo post
 router.get('/bacheca/:id', (req, res) => {
 
-    let extractedPost = postsList.find( post => {
-        // req.params.id
-        if (post.titolo === req.params.id) {
-            return post;
-        }
-    });
+    // let extractedPost = postsList.find( post => post.titolo === req.params.id) ;
 
-    res.send(extractedPost);
+    let extractedId = parseInt(req.params.id) - 1;
+    console.log(extractedId)
+
+    let extractedPost = postsList.find( (post) => postsList.indexOf(post) === extractedId );
+    console.log(extractedPost)
+
+    res.json(extractedPost);
 
 })
 
